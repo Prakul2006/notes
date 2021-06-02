@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class=" paper" id="pap">
+        <div class="canvasSimple">
+            <div id="canvasSimpleDiv"></div>
+        </div>
+    </div>
+    <div id="imgCanvas" style="display: none;"></div>
+    <button onclick="Clear(2)">Clear</button>
+    <button onclick="erase()">Erase</button>
+    <button onclick="red()">Red</button>
+    <button onclick="black()">Black</button>
+    <button onclick="save()">Save</button>
+    <input type="checkbox" id="toggle" onchange="updatenotes()" checked>
+    <span>Ruled</span>
+</body>
+
+</html>

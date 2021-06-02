@@ -15,7 +15,6 @@ img = document.createElement('canvas');
 img.setAttribute('width', SCREEN_WIDTH);
 img.setAttribute('height', SCREEN_HEIGHT);
 img.setAttribute('id', 'canvas');
-imgDiv.appendChild(img);
 
 if (typeof G_vmlCanvasManager != 'undefined') {
     canvas = G_vmlCanvasManager.initElement(canvas);

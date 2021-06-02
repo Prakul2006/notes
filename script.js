@@ -9,7 +9,6 @@ canvas = document.createElement('canvas');
 canvas.setAttribute('width', SCREEN_WIDTH);
 canvas.setAttribute('height', SCREEN_HEIGHT);
 canvas.setAttribute('id', 'canvas');
-canvasDiv.appendChild(canvas);
 
 var imgDiv = document.getElementById('imgCanvas');
 img = document.createElement('canvas');
@@ -17,6 +16,7 @@ img.setAttribute('width', SCREEN_WIDTH);
 img.setAttribute('height', SCREEN_HEIGHT);
 img.setAttribute('id', 'canvas');
 imgDiv.appendChild(img);
+
 if (typeof G_vmlCanvasManager != 'undefined') {
     canvas = G_vmlCanvasManager.initElement(canvas);
     img = G_vmlCanvasManager.initElement(img);

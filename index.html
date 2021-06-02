@@ -94,23 +94,28 @@
         }
     }
     function save() {
+        fillCanvasBackgroundWithColor('white');
         if (tostatus.checked) {
             drawLines();
         }
         var dataURL = canvas.toDataURL('image/jpg', 1.0);
-        console.log(dataURL);
         var image = new Image();
         image.src = dataURL;
         imgcontext.drawImage(canvas, 0, 0);
         var fdataURL = img.toDataURL('image/jpg', 1.0);
-        console.log(fdataURL);
         var fimage = new Image();
         fimage.src = fdataURL;
         imgcontext.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         var w = window.open("");
         w.document.write(fimage.outerHTML);
     }
-
+    function fillCanvasBackgroundWithColor(color) {
+        imgcontext.save();
+        imgcontext.globalCompositeOperation = 'source-over';
+        imgcontext.fillStyle = color;
+        imgcontext.fillRect(0, 0, canvas.width, canvas.height);
+        imgcontext.save();
+    }
     function drawLines(color) {
         imgcontext.globalCompositeOperation = 'source-over';
         var currentLineY = 0;
@@ -126,7 +131,7 @@
         imgcontext.stroke();
         imgcontext.beginPath();
         imgcontext.strokeStyle = '#ea206e';
-        for (let j = 0; j < 3; j++) {
+        for (j = 0; j < 3; j++) {
             var x = (j *= 5) + 60;
             imgcontext.moveTo(x, 0);
             imgcontext.lineTo(x, SCREEN_HEIGHT);
@@ -145,6 +150,9 @@
         }
     }
     window.onresize = function onWindowResize() {
+        if (window.innerHeight() > SCREEN_HEIGHT + 40 + 5) {
+            console.log(1);
+        }
         if (flag) {
             var r = confirm("Rotating the screen causes the canvas to clear !");
             if (r == true) {
@@ -185,7 +193,7 @@
         if (curColor == 'white') {
             context.globalCompositeOperation = "destination-out"
         }
-        else{
+        else {
             context.globalCompositeOperation = "source-over"
         }
         context.strokeStyle = curColor;
@@ -393,13 +401,14 @@
         position: relative;
         color: #444;
         line-height: 20px;
+        border: 1px solid #d2d2d2;
         background: #fff;
         background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
-        background: -webkit-linear-gradient(top, #ccc 0%, #fff 8%) 0 4px;
-        background: -moz-linear-gradient(top, #ccc 0%, #fff 8%) 0 4px;
-        background: -ms-linear-gradient(top, #ccc 0%, #fff 8%) 0 4px;
-        background: -o-linear-gradient(top, #ccc 0%, #fff 8%) 0 4px;
-        background: linear-gradient(top, #ccc 0%, #fff 8%) 0 4px;
+        background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+        background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+        background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+        background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+        background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
         -webkit-background-size: 100% 20px;
         -moz-background-size: 100% 20px;
         -ms-background-size: 100% 20px;
